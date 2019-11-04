@@ -6,9 +6,9 @@
   "scripts": {
     "test": "jest",
     "coverage": "jest --coverage",
-    "buildDev": "rm -rf dist && webpack --mode development --config webpack.server.config.js && webpack --mode development --config webpack.dev.config.js",
-    "buildProd": "rm -rf dist && webpack --mode production --config webpack.server.config.js && webpack --mode production --config webpack.prod.config.js",
-    "start": "node ./dist/server.js"
+    "buildDev": "rmdir /Q /S dist && webpack --mode development --config webpack.server.config.js && webpack --mode development --config webpack.dev.config.js",
+    "buildProd": "rmdir /Q /S dist && webpack --mode production --config webpack.server.config.js && webpack --mode production --config webpack.prod.config.js",
+    "start": "npm run buildDev && node ./dist/server.js"
   },
   "repository": "https://github.com/bengrunfeld/rexpack",
   "keywords": [],
@@ -17,6 +17,7 @@
   "dependencies": {
     "express": "^4.16.4",
     "react": "^16.7.0",
+    "react-autobind": "^1.0.6",
     "react-dom": "^16.7.0"
   },
   "engines": {
