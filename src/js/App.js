@@ -9,29 +9,43 @@ class App extends React.Component {
       autoBind(this);
       this.state = { 
         ref : React.createRef(),
-        PhotoArr : [],
+        PhotoObj : [],
       }
   }
   componentDidMount(){
       
   }
-  GetPhoto( data ){
+  AddPhoto( data ){
+    let i = 0;
+    while(this.state.PhotoObj[i]) i++;
+ 
+    let a = {};
+    a[i] = data;
+    
     this.setState({
-      PhotoArr : [...this.state.PhotoArr, data]
+      PhotoObj : { ...this.state.PhotoObj, ...a }
     })
   }
+  DelPhoto( ind ){
+    let a = { ...this.state.PhotoObj};
+    delete a[ind];
+  
+    this.setState({PhotoObj : a})
+  }
   render(){
+    const PhotoObj = this.state.PhotoObj;
+   
     return (
       <div className="content">
         <h1>Rexpack от  <a href='https://github.com/bengrunfeld?tab=overview&from=2019-11-01&to=2019-11-03'>мужика с гита</a></h1>
-        <p className="description">React, Express, and Webpack Boilerplate Application</p>
-        <div className="awful-selfie"></div>
         <Screen
-          SendPhotoStore = {this.GetPhoto}
+          SendPhotoStore = {this.AddPhoto}
         />
-        {this.state.PhotoArr.map( (el, ind) => (
+        {Object.keys(PhotoObj).map( key => (
           <Card 
-            data = {el}
+            data = {PhotoObj[key]}
+            id = { key }
+            Del = {this.DelPhoto}
           />
         ))}
       </div>
