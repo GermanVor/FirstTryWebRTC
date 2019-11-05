@@ -69,9 +69,13 @@ class Screen extends React.Component {
   render(){
     return (
       <div className="Screen" ref={this.state.ref} >
+        <div className='info'>
+          Сайт не собирает никакие метрики или информацию посетителей. <br/>
+          Для хранения готовых фотографий используется localStorage браузера.
+        </div>  
         <div className="camera">
           <video id="video">Video stream not available.</video>
-        </div>  
+        </div>
         <button  type="button" class="btn btn-info" onClick={this.onClick}>Take photo</button> 
         <canvas id="canvas"></canvas>
       </div>
