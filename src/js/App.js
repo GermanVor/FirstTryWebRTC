@@ -14,7 +14,7 @@ class App extends React.Component {
   }
   componentDidMount() {
     this.setState({ PhotoObj : localStorage })
-    console.log('Rexpack от https://github.com/bengrunfeld?tab=overview&from=2019-11-01&to=2019-11-03');
+    console.log('Rexpack от https://github.com/bengrunfeld');
   }
   AddPhoto( data ) {
     let i = 0;

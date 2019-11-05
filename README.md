@@ -1,2 +1,4 @@
-пока что это временный журнал замкток 
-обязательно заменить : "start": "npm run buildDev && node ./dist/server.js" на "start": "node ./dist/server.js" !!!!!!!!!!
+#Webpack 4 + React + express  
+
+Ознакомиться с приложением можно перейдя по [ссылке](https://quizzical-dijkstra-a2f63c.netlify.com)  
+Проект написан в учебных целях, для освоения серверной составляющей Web-приложений.  
