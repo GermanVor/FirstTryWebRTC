@@ -2,7 +2,7 @@ import React from 'react';
 import autoBind from 'react-autobind';
 
 class Screen extends React.Component { 
-  constructor(props){
+  constructor(props) {
       super(props);
       autoBind(this);
       this.state = { 
@@ -14,7 +14,7 @@ class Screen extends React.Component {
         streaming : false
       }
   }
-  componentDidMount(){
+  componentDidMount() {
     this.setState({
       video : document.getElementById('video'),
       canvas : document.getElementById('canvas'), 
@@ -24,6 +24,7 @@ class Screen extends React.Component {
     let setState = this.setState.bind(this);
 
     navigator.mediaDevices.getUserMedia({video: true, audio: false})
+
       .then(function(stream) {
         let video = document.getElementById('video');
 
@@ -50,7 +51,6 @@ class Screen extends React.Component {
       .catch(function(err) {
         console.log("An error occurred: " + err);
       })
-     
   }
   onClick() {
     let canvas = this.state.canvas;
@@ -71,8 +71,8 @@ class Screen extends React.Component {
       <div className="Screen" ref={this.state.ref} >
         <div className="camera">
           <video id="video">Video stream not available.</video>
-          <button onClick={this.onClick}>Take photo</button> 
         </div>  
+        <button  type="button" class="btn btn-info" onClick={this.onClick}>Take photo</button> 
         <canvas id="canvas"></canvas>
       </div>
     )

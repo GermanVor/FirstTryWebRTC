@@ -12,10 +12,11 @@ class App extends React.Component {
         PhotoObj : [],
       }
   }
-  componentDidMount(){
-      
+  componentDidMount() {
+    this.setState({ PhotoObj : localStorage })
+    console.log('Rexpack от https://github.com/bengrunfeld?tab=overview&from=2019-11-01&to=2019-11-03');
   }
-  AddPhoto( data ){
+  AddPhoto( data ) {
     let i = 0;
     while(this.state.PhotoObj[i]) i++;
  
@@ -24,30 +25,34 @@ class App extends React.Component {
     
     this.setState({
       PhotoObj : { ...this.state.PhotoObj, ...a }
-    })
+    });
+
+    localStorage.setItem(i, data);
   }
-  DelPhoto( ind ){
+  DelPhoto( ind ) {
     let a = { ...this.state.PhotoObj};
     delete a[ind];
-  
+    delete localStorage[ind] 
     this.setState({PhotoObj : a})
   }
-  render(){
+  render() {
     const PhotoObj = this.state.PhotoObj;
    
     return (
       <div className="content">
-        <h1>Rexpack от  <a href='https://github.com/bengrunfeld?tab=overview&from=2019-11-01&to=2019-11-03'>мужика с гита</a></h1>
         <Screen
           SendPhotoStore = {this.AddPhoto}
         />
-        {Object.keys(PhotoObj).map( key => (
-          <Card 
-            data = {PhotoObj[key]}
-            id = { key }
-            Del = {this.DelPhoto}
-          />
-        ))}
+        <div className='CardBox'>
+          {Object.keys(PhotoObj).map( key => (
+            <Card 
+              data = {PhotoObj[key]}
+              id = { key }
+              Del = {this.DelPhoto}
+              key = {PhotoObj[key]}
+            />
+          ))}
+        </div>
       </div>
     )
   }
