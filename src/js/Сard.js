@@ -24,7 +24,7 @@ class Card extends React.Component {
           <img src = {this.props.data} alt="The screen capture will appear in this box."/> 
         </div>
         <div>
-          <button type="button" class="btn btn-info" onClick={ this.Del }>Delete</button>
+          <button type="button" className="btn btn-info" onClick={ this.Del }>Delete</button>
         </div>
       </div>
     )
