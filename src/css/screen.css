@@ -59,6 +59,7 @@ input:checked + .slider:before {
 label {
   margin: 0px;
   display: inline-block;
+  margin-left: 25px;
 }
 .ScreenPanel {
   display: flex;
