@@ -19,7 +19,7 @@ class Card extends React.Component {
   
   render(){
     return (
-      <div className='ProfilCard'  ref={this.state.ref} id={'card-' + this.props.id}>
+      <div className='ProfilCard'  ref={this.state.ref} id={'card-' + this.props.id} key = {'card-' + this.props.id}>
         <div className="output">
           <img src = {this.props.data} alt="The screen capture will appear in this box."/> 
         </div>

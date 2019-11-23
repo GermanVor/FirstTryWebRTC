@@ -9,7 +9,7 @@ class App extends React.Component {
       autoBind(this);
       this.state = { 
         ref : React.createRef(),
-        PhotoObj : [],
+        PhotoObj : {},
       }
   }
   componentDidMount() {
@@ -20,11 +20,8 @@ class App extends React.Component {
     let i = 0;
     while(this.state.PhotoObj[i]) i++;
  
-    let a = {};
-    a[i] = data;
-    
     this.setState({
-      PhotoObj : { ...this.state.PhotoObj, ...a }
+      PhotoObj : { ...this.state.PhotoObj, ...{ [i] : data} }
     });
 
     localStorage.setItem(i, data);
@@ -37,7 +34,7 @@ class App extends React.Component {
   }
   render() {
     const PhotoObj = this.state.PhotoObj;
-   
+   console.log(PhotoObj)
     return (
       <div className="content">
         <Screen
@@ -49,7 +46,6 @@ class App extends React.Component {
               data = {PhotoObj[key]}
               id = { key }
               Del = {this.DelPhoto}
-              key = {PhotoObj[key]}
             />
           ))}
         </div>
