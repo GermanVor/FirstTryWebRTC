@@ -28,13 +28,12 @@ class App extends React.Component {
   }
   DelPhoto( ind ) {
     let a = { ...this.state.PhotoObj};
-    delete a[ind];
-    delete localStorage[ind] 
-    this.setState({PhotoObj : a})
+      delete a[ind];
+      delete localStorage[ind]; 
+      this.setState({PhotoObj : a});
   }
   render() {
     const PhotoObj = this.state.PhotoObj;
-   console.log(PhotoObj)
     return (
       <div className="content">
         <Screen

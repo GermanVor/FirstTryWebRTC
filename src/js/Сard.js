@@ -11,7 +11,7 @@ class Card extends React.Component {
       }
   }
   componentDidMount(){}
-  Del() {
+  Del(){
     let id = this.state.ref.current.id;
     
     this.props.Del( id.split('-')[1] );
